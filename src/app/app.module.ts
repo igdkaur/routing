@@ -16,6 +16,8 @@ import { RouterModule, Routes } from '@angular/router';
 const appRoutes: Routes = [
 {path: '', component: HomeComponent},
 {path: 'users', component: UsersComponent},
+{path: 'users/:id/:name', component: UserComponent}, //single user
+{path: 'users/:id/:name', component: UserComponent},
 {path: 'servers', component:ServersComponent}
 ];
 
@@ -33,7 +35,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes  )
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [ServersService],
   bootstrap: [AppComponent]
@@ -46,3 +48,7 @@ export class AppModule { }
 // appRoutes hold all route of this app
 
 //  forRoot-registers routes for main application
+
+// colon name- colon = dynamaic part of path 
+//encode data in path/ route with dynamic path
+//acs encoded URL

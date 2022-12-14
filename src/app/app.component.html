@@ -2,9 +2,12 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a routerLink="/">Home</a></li>
+        <!-- <li role="presentation" class="active"><a routerLink="/">Home</a></li>
         <li role="presentation"><a routerLink="/servers">Servers</a></li>
-        <li role="presentation"><a [routerLink]="['/users']">Users</a></li>
+        <li role="presentation"><a [routerLink]="['/users']">Users</a></li> -->
+        <li role="presentation" RouterLinkActive="active"><a routerLink="/">Home</a></li>
+        <li role="presentation" RouterLinkActive="active"><a routerLink="servers">Servers</a></li>
+        <li role="presentation" RouterLinkActive="active"><a [routerLink]="['users']">Users</a></li>
       </ul>
     </div>
   </div>
@@ -17,3 +20,18 @@
 </div>
 
 
+<!-- 921 no visual indication of current selected tab
+class - active 
+RouterLinkActive 
+ISSUE - (cnt replicate though) HOME marked as active always bcs empty path segment
+SOL - add routerLinkActiveOptions,Prop Bind - pass obj
+[routerLinkActiveOptions]="{exact:true}"
+-->
+
+<!-- 031 load route programtcly 
+inject router
+navigate
+ALSO - use relative paths there
+-->
+<!-- 032 -passs parameters 
+pass id of users-->

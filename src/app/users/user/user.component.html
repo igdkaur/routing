@@ -1,2 +1,29 @@
-<p>User with ID _ID_ loaded.</p>
-<p>User name is _NAME_</p>
+<p>User with ID {{user.id}}</p>
+<p>User name is {{user.name}}</p>
+
+
+<a [routerLink] = "['/users',10,'Anna']"> Load Anna</a>
+
+<!-- url updates, text doesnt -->
+<!-- We load our data by using this snapshot object on the route.
+what happens?
+1. looks into app module,
+2. finds the route here
+3. loads the component, initializes the component
+4. gives us the data by accessing the snapshot .
+
+only happens if we haven't been on this component before.
+ISSUE -
+But if we click this link which is on the user component the URL still changes,
+but we already are on the component which should get loaded. -->
+
+<!-- DSCSN - no reinstantiate of this component.
+dnt rerender a component we already are on/it won't recreate the whole component
+load updated data? 
+SOL- use the snapshot for the first initialization,
+but to react to subsequent changes,
+
+ngOnInit - params property
+**observable** - for ASYNC code
+
+-->
