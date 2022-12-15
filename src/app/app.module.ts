@@ -18,9 +18,10 @@ const appRoutes: Routes = [
 {path: 'users', component: UsersComponent},
 {path: 'users/:id/:name', component: UserComponent}, //single user
 {path: 'users/:id/:name', component: UserComponent},
-{path: 'servers', component:ServersComponent},
-{path: 'servers/:id/edit', component:EditServerComponent},
-{path: 'servers/:id', component:ServersComponent},
+{path: 'servers', component:ServersComponent,children: [
+  {path: ':id/edit', component:EditServerComponent},
+  {path: ':id', component:ServerComponent},]},
+
 ];
 
 @NgModule({
@@ -54,3 +55,6 @@ export class AppModule { }
 // colon name- colon = dynamaic part of path 
 //encode data in path/ route with dynamic path
 //acs encoded URL
+
+
+//all routes start with servers - add child routes
