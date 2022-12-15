@@ -22,7 +22,9 @@ const appRoutes: Routes = [
   {path: ':id/edit', component:EditServerComponent},
   {path: ':id', component:ServerComponent},]},
 {path: 'not-found',component:PageNotFoundComponent},
-{path: 'something',redirectTo:'/not-found'}
+{path: 'something',redirectTo:'/not-found'},
+{path: '**',redirectTo:'/not-found'},
+
 ];
 
 @NgModule({
@@ -60,3 +62,4 @@ export class AppModule { }
 
 
 //all routes start with servers - add child routes
+//wildcard route catching all routes which are unknown,IMP order matters
