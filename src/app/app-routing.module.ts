@@ -13,7 +13,12 @@ const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'users', component: UsersComponent, children: [
     {path: ':id/:name', component: UserComponent},]},
-  {path: 'servers', canActivate: [AuthGuard], component:ServersComponent,children: [
+  {
+    path: 'servers', 
+    // canActivate: [AuthGuard], 
+    canActivateChild:[AuthGuard],
+    component:ServersComponent,
+    children: [
     {path: ':id/edit', component:EditServerComponent},
     {path: ':id', component:ServerComponent},]},
   {path: 'not-found',component:PageNotFoundComponent},
@@ -38,3 +43,10 @@ export class AppRoutingModule {
   // if the AuthGuard CanActivate method returns true in the end
   // which will only happen if in the AuthService
   // loggedIn is set to true.
+
+
+ //because the off-guard now is able to do both.
+// Protect a single route,
+// since we have can activate implemented,
+// or all child routes,
+// since we have can activate child implemented too. 
