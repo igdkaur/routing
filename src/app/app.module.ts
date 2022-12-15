@@ -12,6 +12,7 @@ import { EditServerComponent } from './servers/edit-server/edit-server.component
 import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
 import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
 {path: '', component: HomeComponent},
@@ -20,7 +21,7 @@ const appRoutes: Routes = [
 {path: 'servers', component:ServersComponent,children: [
   {path: ':id/edit', component:EditServerComponent},
   {path: ':id', component:ServerComponent},]},
-
+{path: 'something',component:PageNotFoundComponent}
 ];
 
 @NgModule({
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     ServersComponent,
     UserComponent,
     EditServerComponent,
-    ServerComponent
+    ServerComponent,
+    PageNotFoundComponent
   
   ],
   imports: [
