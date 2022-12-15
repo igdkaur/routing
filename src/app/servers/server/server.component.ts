@@ -26,7 +26,7 @@ export class ServerComponent implements OnInit {
     )
   }
   onEdit(){
-    this.router.navigate(['edit'],{relativeTo: this.route})
+    this.router.navigate(['edit'],{relativeTo: this.route, queryParamsHandling: 'preserve'})
     //  this.router.navigate(['servers'],{relativeTo: this.route})
   }
 
@@ -36,3 +36,4 @@ export class ServerComponent implements OnInit {
 
 // IMP - parse a parameter from url, always be a string
 
+//queryParamsHandling- string ,merge,preserve
