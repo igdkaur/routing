@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { AuthGuard } from "./auth-guard.service";
 import { HomeComponent } from "./home/home.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { EditServerComponent } from "./servers/edit-server/edit-server.component";
@@ -12,7 +13,7 @@ const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'users', component: UsersComponent, children: [
     {path: ':id/:name', component: UserComponent},]},
-  {path: 'servers', component:ServersComponent,children: [
+  {path: 'servers', canActivate: [AuthGuard], component:ServersComponent,children: [
     {path: ':id/edit', component:EditServerComponent},
     {path: ':id', component:ServerComponent},]},
   {path: 'not-found',component:PageNotFoundComponent},
@@ -32,3 +33,8 @@ export class AppRoutingModule {
 //add appRoutes constant here
 
 //add back to main module
+  // And this will make sure that servers is now only accessible
+  // and all the child routes only accessible
+  // if the AuthGuard CanActivate method returns true in the end
+  // which will only happen if in the AuthService
+  // loggedIn is set to true.
